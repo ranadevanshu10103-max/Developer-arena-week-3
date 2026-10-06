@@ -1,0 +1,361 @@
+1. What is Data Analysis?
+
+>Data: Data means raw facts, numbers, or information collected from different sources.
+>Data Analysis: Data Analysis is the process of collecting, cleaning, organizing, exploring, and analyzing data to find useful information and insights.
+
+Why is Data Analysis Important?
+>Data Analysis helps us to:
+ - Find useful information from raw data.
+ - Identify patterns and trends.
+ - Find errors or missing values.
+ - Calculate totals, averages, minimum and maximum values.
+ - Make better and data-driven decisions.
+
+Example:
+Suppose a shop has sales data:
+
+Product    Sales
+Laptop     ₹50,000
+Mobile     ₹30,000
+TV         ₹40,000
+
+>After analyzing this data, we can find:
+- Total Sales = ₹1,20,000
+- Highest Sales = Laptop
+- Lowest Sales = Mobile
+These useful findings are called Insights.
+
+2. Pandas Library — Excel-like Operations in Python
+
+>Pandas:Pandas is a popular Python library used for data manipulation, data analysis, and data cleaning.
+
+Why is Pandas Used?
+> Pandas helps us to work with structured and tabular data easily.
+> It provides operations similar to working with data in Excel.
+> It is commonly used by Data Analysts and Data Scientists.
+
+Pandas can be used to:
+- Read CSV and Excel files.
+- View and explore data.
+- Select and filter rows and columns.
+- Clean missing or incorrect data.
+- Sort and organize data.
+- Calculate average, minimum, maximum, and other statistics.
+- Group and analyze data.
+- Prepare data for further analysis.
+
+DataFrame:A DataFrame is a two-dimensional table in Pandas containing rows and columns.
+
+Example:
+
+Name    Marks    City
+Rahul    80      Surat
+Amit     65      Vyara
+Jay      90      Mumbai
+
+The complete table above is a DataFrame.
+
+Series:A Series is a one-dimensional data structure that usually represents a single column of a DataFrame.
+
+Example:
+
+Name
+Rahul
+Amit
+Jay
+
+The Name column above can be a Series.
+
+DataFrame vs Series:
+- DataFrame = Complete table with rows and columns.
+- Series = Single column of data.
+
+Simple Pandas Workflow:
+
+CSV File
+   ↓
+Pandas
+   ↓
+DataFrame
+   ↓
+Clean Data
+   ↓
+Explore Data
+   ↓
+Analyze Data
+   ↓
+Find Insights
+
+Importance of Pandas:
+Pandas makes it easier and faster to handle, clean, explore, and analyze large datasets using Python.
+
+3. Reading Data from CSV Files
+
+>CSV:CSV stands for Comma-Separated Values.
+
+A CSV file is a simple file format used to store tabular data in rows and columns.
+
+Example:
+
+Name,Marks,City
+Rahul,80,Surat
+Amit,65,Vyara
+Jay,90,Mumbai
+
+CSV files can be opened in Excel and can also be read using Python and Pandas.
+
+Reading CSV using Pandas:
+
+import pandas as pd
+
+data = pd.read_csv("students.csv")
+
+print(data)
+
+Explanation:
+- import pandas as pd -> Imports the Pandas library.
+- pd.read_csv() -> Reads a CSV file.
+- data -> Stores the CSV data as a Pandas DataFrame.
+- print(data) -> Displays the data.
+
+Viewing First Rows:
+
+print(data.head())
+
+The head() function displays the first 5 rows of the DataFrame by default.
+
+Basic Workflow:
+
+CSV File
+   ↓
+pd.read_csv()
+   ↓
+Pandas DataFrame
+   ↓
+Explore and Analyze Data
+
+4. Exploring Data
+
+>Data Exploration:Data exploration is the process of examining a dataset to understand its structure, contents, columns, rows, data types, and basic statistics before performing detailed analysis.
+
+Important Pandas Commands:
+
+1. head()
+data.head()
+
+Displays the first 5 rows of the DataFrame by default.
+
+To display the first 10 rows:
+data.head(10)
+
+
+2. tail()
+data.tail()
+
+Displays the last 5 rows of the DataFrame by default.
+
+
+3. shape
+data.shape
+
+Returns the number of rows and columns.
+
+Example:
+(100, 5)
+
+This means:
+100 rows and 5 columns.
+
+
+4. columns
+data.columns
+
+Displays the names of all columns in the DataFrame.
+
+
+5. info()
+data.info()
+
+Provides basic information about the dataset, including:
+- Number of rows
+- Column names
+- Non-null values
+- Data types
+- Memory usage
+
+
+6. describe()
+data.describe()
+
+Provides a statistical summary of numerical columns.
+
+It can show:
+- Count
+- Mean
+- Standard deviation
+- Minimum
+- Maximum
+- Percentile values
+
+
+Easy way to remember:
+
+head()     -> First rows
+tail()     -> Last rows
+shape      -> Rows and columns
+columns    -> Column names
+info()     -> Dataset information
+describe() -> Statistical summary
+
+5. Data Cleaning
+
+>Data Cleaning:Data Cleaning is the process of identifying and handling missing, incorrect, duplicate, or unwanted data in a dataset.
+
+Why is Data Cleaning Important?
+- Removes errors from the dataset.
+- Handles missing values.
+- Removes duplicate records.
+- Corrects incorrect or unwanted values.
+- Improves the quality and reliability of analysis.
+
+1. Checking Missing Values
+
+data.isnull()
+
+Checks which values are missing and returns True or False.
+
+To count missing values:
+
+data.isnull().sum()
+
+
+2. Removing Missing Values
+
+data.dropna()
+
+Removes rows containing missing values.
+
+
+3. Filling Missing Values
+
+data["Age"].fillna(20)
+
+Fills missing Age values with 20.
+
+Example of filling with the average:
+
+data["Marks"].fillna(data["Marks"].mean())
+
+This fills missing Marks with the average Marks.
+
+
+4. Finding Duplicate Values
+
+data.duplicated()
+
+Checks for duplicate rows.
+
+
+5. Removing Duplicate Values
+
+data.drop_duplicates()
+
+Removes duplicate rows from the dataset.
+
+
+6. Handling Wrong Values
+
+Wrong or unrealistic values should be identified and corrected or removed.
+
+Example:
+Age = -5 is an incorrect value because age cannot normally be negative.
+
+
+Data Cleaning Process:
+
+Find Problems
+      ↓
+Handle Missing Values
+      ↓
+Remove Duplicates
+      ↓
+Fix Wrong Values
+      ↓
+Clean Dataset
+
+
+Important:
+Clean data leads to more accurate and reliable data analysis.
+
+6. Simple Statistics
+
+>Simple Statistics:Simple statistics are basic calculations used to understand and summarize numerical data.
+
+Three important statistical operations are:
+
+1. Mean / Average
+2. Maximum
+3. Minimum
+
+
+1. Mean / Average
+
+Mean is the average value of a set of numbers.
+
+Formula:
+
+Average = Sum of all values / Number of values
+
+Example:
+
+Marks = 60, 70, 80, 90, 100
+
+Average = (60 + 70 + 80 + 90 + 100) / 5
+        = 400 / 5
+        = 80
+
+Pandas:
+
+data["Marks"].mean()
+
+
+2. Maximum
+
+Maximum is the highest value in a dataset.
+
+Example:
+
+Marks = 60, 70, 80, 90, 100
+
+Maximum = 100
+
+Pandas:
+
+data["Marks"].max()
+
+
+3. Minimum
+
+Minimum is the lowest value in a dataset.
+
+Example:
+
+Marks = 60, 70, 80, 90, 100
+
+Minimum = 60
+
+Pandas:
+
+data["Marks"].min()
+
+
+Easy way to remember:
+
+mean() -> Average
+max()  -> Highest value
+min()  -> Lowest value
+
+
+Why are Statistics Useful?
+
+Statistics help us quickly understand numerical data and identify important information such as average performance, highest value, and lowest value.
